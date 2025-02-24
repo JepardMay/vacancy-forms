@@ -1,6 +1,15 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+interface ContainerProps {
+  $flex?: boolean;
+  $alignCenter?: boolean;
+  $spaceBetween?: boolean;
+}
+
+export const Container = styled.div<ContainerProps>`
+  ${({ $flex }) => $flex && 'display: flex;'}
+  ${({ $spaceBetween }) => $spaceBetween && 'justify-content: space-between;'}
+  ${({ $alignCenter }) => $alignCenter && 'align-items: center;'}
   max-width: 1920px;
   width: 100%;
   margin: 0 auto;
