@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "jobTitle": "Frontend Developer",
+    "vacancyName": "Frontend Developer (React)",
+    "department": "IT",
+    "openingDate": "2023-10-01",
+    "plannedClosingDate": "2023-12-01",
+    "gender": "Мужской",
+    "education": "Высшее",
+    "salary": {
+      "type": "На руки",
+      "from": 100000,
+      "to": 150000
+    },
+    "region": "Москва",
+    "address": "ул. Ленина, 10",
+    "metroStation": "Красные Ворота",
+    "workExperience": "3 года",
+    "workSchedule": "Полный день",
+    "employmentType": "Полная занятость",
+    "responsibilities": "Разработка интерфейсов на React.",
+    "candidateRequirements": "Опыт работы с React и TypeScript.",
+    "advantages": "Опыт работы в крупных проектах.",
+    "weOffer": "Гибкий график, удаленная работа."
+  },
+  {
+    "id": 2,
+    "jobTitle": "Backend Developer",
+    "vacancyName": "Backend Developer (Node.js)",
+    "department": "IT",
+    "openingDate": "2023-09-15",
+    "plannedClosingDate": "2023-11-15",
+    "gender": "Женский",
+    "education": "Среднее специальное",
+    "salary": {
+      "type": "До вычета налогов",
+      "from": 120000,
+      "to": 160000
+    },
+    "region": "Санкт-Петербург",
+    "address": "ул. Пушкина, 5",
+    "metroStation": "Невский проспект",
+    "workExperience": "5 лет",
+    "workSchedule": "Гибкий график",
+    "employmentType": "Частичная занятость",
+    "responsibilities": "Разработка API на Node.js.",
+    "candidateRequirements": "Опыт работы с MongoDB.",
+    "advantages": "Знание Docker.",
+    "weOffer": "Офис в центре города."
+  }
+]
