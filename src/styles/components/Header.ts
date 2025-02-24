@@ -6,11 +6,15 @@ export const HeaderWrapper = styled.header`
 `;
 
 export const LogoWrapper = styled.div`
-  width: 31px;
-  height: 31px;
-  margin-right: 15px;
-  background-color: ${({ theme }) => theme.colors.bgSecondary};
-  border-radius: 50%;
+  a {
+    display: block;
+    width: 31px;
+    height: 31px;
+    margin-right: 15px;
+    text-decoration: none;
+    background-color: ${({ theme }) => theme.colors.bgSecondary};
+    border-radius: 50%;
+  }
 `;
 
 export const MenuList = styled.ul`

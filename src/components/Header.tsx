@@ -30,9 +30,7 @@ const Header = () => {
   return (
     <HeaderWrapper>
       <Container $flex $alignCenter $spaceBetween>
-        <NavLink to="/">
-          <LogoWrapper/>
-        </NavLink>
+        <LogoWrapper><NavLink to="/" /></LogoWrapper>
         {menuList}
       </Container>
     </HeaderWrapper>

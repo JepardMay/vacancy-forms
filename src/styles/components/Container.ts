@@ -23,3 +23,11 @@ export const Container = styled.div<ContainerProps>`
     padding: 0 ${({ theme }) => theme.spacing.small};
   }  
 `;
+
+export const SectionContainer = styled.section`
+  padding: 48px 0 106px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    padding: 28px 0 86px;
+  } 
+`;

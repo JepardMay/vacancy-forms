@@ -1,14 +1,21 @@
 import Page from './Page';
 
+import { SectionContainer, Container, Title } from '../styles';
+
 interface Props {
   title: string;
+  header: React.ReactNode | string;
 }
 
-const FormPage = ({ title }: Props) => {
+const FormPage = ({ title, header = title }: Props) => {
 
   return (
     <Page title={ title }>
-      <h1>{ title }</h1>
+      <SectionContainer>
+        <Container>
+          <Title>{ header }</Title>
+        </Container>
+      </SectionContainer>
     </Page>
   );
 };

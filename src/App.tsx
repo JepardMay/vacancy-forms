@@ -10,11 +10,25 @@ const router = createBrowserRouter([
   },
   {
     path: '/create',
-    element: <FormPage title="Форма размещения заявки" />,
+    element: <FormPage
+      title="Создание заявки"
+      header={
+          <>
+            Форма размещения <span>заявки</span>
+          </>
+        }
+    />,
   },
   {
     path: '/edit:id',
-    element: <FormPage title="Форма редактирования заявки" />,
+    element: <FormPage
+      title="Редактирование заявки"
+      header={
+          <>
+            Форма редактирования <span>заявки</span>
+          </>
+        }
+    />,
   },
 ]);
 
