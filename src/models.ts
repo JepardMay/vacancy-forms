@@ -5,10 +5,10 @@ export interface ApplicationData {
   department: string;
   openingDate: string;
   plannedClosingDate: string;
-  gender: 'Мужской' | 'Женский';
-  education: 'Высшее' | 'Среднее';
+  gender: 'Мужской' | 'Женский' | '';
+  education: 'Высшее' | 'Среднее' | '';
   salary?: {
-    type: 'На руки' | 'До вычета налогов';
+    type: 'На руки' | 'До вычета налогов' | '';
     from?: number;
     to?: number;
   };
@@ -16,8 +16,8 @@ export interface ApplicationData {
   address: string;
   metroStation?: string;
   workExperience: string;
-  workSchedule: 'Полный день' | 'Сменный 5/2' | 'Сменный 2/2';
-  employmentType: 'Полная занятость' | 'Частичная занятость' | 'Стажировка';
+  workSchedule: 'Полный день' | 'Сменный 5/2' | 'Сменный 2/2' | '';
+  employmentType: 'Полная занятость' | 'Частичная занятость' | 'Стажировка' | '';
   responsibilities?: string;
   candidateRequirements?: string;
   advantages?: string;

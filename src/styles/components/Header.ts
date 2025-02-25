@@ -40,7 +40,7 @@ export const MenuElement = styled.li`
     text-decoration-thickness: 6px;
     color: inherit;
     background-color: transparent;
-    transition: all ${({ theme }) => theme.transitions.default};
+    transition: ${({ theme }) => theme.transitions.default};
   }
 
   @media (hover: hover) {

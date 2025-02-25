@@ -4,7 +4,17 @@ import { formatDate } from '../utils/formatUtils';
 
 import { EditIcon, MapPinIcon, MetroIcon } from './icons';
 
-import { ApplicationsItem, ApplicationsHeader, ApplicationsTitle, ApplicationsBody, ApplicationsAddress, ApplicationsInfo, ApplicationsSalary, ApplicationsWorkExp, ApplicationsMetro } from '../styles';
+import {
+  ApplicationsItem,
+  ApplicationsHeader,
+  ApplicationsTitle,
+  ApplicationsBody,
+  ApplicationsAddress,
+  ApplicationsInfo,
+  ApplicationsSalary,
+  ApplicationsWorkExp,
+  ApplicationsMetro
+} from '../styles';
 
 interface Props {
   data: ApplicationData;
