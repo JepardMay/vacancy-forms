@@ -5,7 +5,7 @@ import {
   InputBlock,
 } from '../styles';
 
-interface FormFieldProps {
+interface Props {
   name: string;
   label: string;
   type?: string;
@@ -27,7 +27,7 @@ const FormField = ({
   options,
   errors,
   touched,
-}: FormFieldProps) => {
+}: Props) => {
   return (
     <InputBlock $required={required} $width={width}>
       <label htmlFor={name}>{label}</label>
@@ -56,7 +56,9 @@ const FormField = ({
           className={errors[name as keyof ApplicationData] && touched[name as keyof ApplicationData] ? 'error' : ''}
         />
       )}
-      <ErrorMessage name={name} className="error-message" component="div" />
+      { required &&
+        <ErrorMessage name={ name } className="error-message" component="div" />
+      }
     </InputBlock>
   );
 };

@@ -9,8 +9,8 @@ export interface ApplicationData {
   education: 'Высшее' | 'Среднее' | '';
   salary?: {
     type: 'На руки' | 'До вычета налогов' | '';
-    from?: number;
-    to?: number;
+    from?: string;
+    to?: string;
   };
   region: string;
   address: string;

@@ -14,6 +14,7 @@ const iconStyles = css`
   flex-shrink: 0;
   align-self: center;
   margin-right: 5px;
+  color: ${({ theme }) => theme.colors.primary};
 `;
 
 const BaseText = styled.p`

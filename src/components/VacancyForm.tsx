@@ -1,17 +1,14 @@
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
-
+import { Formik, Form } from 'formik';
+import { validationSchema } from '../utils/validationSchema';
 import { ApplicationData } from '../models';
 
-import { CheckIcon } from './icons';
 import FormField from './FormField';
+import RadioGroup from './RadioGroup';
+import SalaryGroup from './SalaryGroup';
 
 import {
   FormBlock,
   FormRow,
-  InputBlock,
-  InputRow,
-  RadioButton,
   FormFooter,
   Button, 
   ButtonBorder,
@@ -20,37 +17,16 @@ import {
 interface Props {
   initialValues: ApplicationData;
   onSubmit: (values: ApplicationData) => void;
+  onReset: (id: number | undefined) => void;
 }
 
-const validationSchema = Yup.object({
-  jobTitle: Yup.string(),
-  vacancyName: Yup.string().required('Укажите наименование'),
-  department: Yup.string().required('Укажите отдел'),
-  openingDate: Yup.date().required('Выберите дату открытия'),
-  plannedClosingDate: Yup.date().required('Выберите дату закрытия'),
-  gender: Yup.string().required('Выберите пол'),
-  education: Yup.string()
-    .required('Укажите образование')
-    .notOneOf([''], 'Выберите значение из списка'),
-  salary: Yup.object({
-    type: Yup.string(),
-    from: Yup.number(),
-    to: Yup.number(),
-  }),
-  region: Yup.string().required('Укажите регион'),
-  address: Yup.string().required('Введите полный адрес. Например, Походный проезд, 3с1'),
-  workExperience: Yup.string().required('Укажите опыт работы'),
-  workSchedule: Yup.string().required('Укажите график работы'),
-  employmentType: Yup.string().required('Выберите тип занятости'),
-});
-
-const VacancyForm = ({ initialValues, onSubmit }: Props) => {
-
+const VacancyForm = ({ initialValues, onSubmit, onReset }: Props) => {
   return (
     <Formik
       initialValues={initialValues}
       validationSchema={validationSchema}
-      onSubmit={onSubmit}
+      onSubmit={ onSubmit }
+      enableReinitialize
     >
       { ({ errors, touched }) => (
         <Form>
@@ -101,24 +77,16 @@ const VacancyForm = ({ initialValues, onSubmit }: Props) => {
               />
             </FormRow>
             <FormRow>
-              <InputBlock $required $width={120}>
-                <label>Пол</label>
-                <RadioButton>
-                  <Field type="radio" name="gender" id="male" value="Мужской" />
-                  <label htmlFor="male">
-                    <CheckIcon/>
-                    Мужской
-                  </label>
-                </RadioButton>
-                <RadioButton>
-                  <Field type="radio" name="gender" id="female" value="Женский" />
-                  <label htmlFor="female">
-                    <CheckIcon/>
-                    Женский
-                  </label>
-                </RadioButton>
-                <ErrorMessage name="gender" className="error-message" component="div" />
-              </InputBlock>
+              <RadioGroup
+                name="gender"
+                label="Пол"
+                required
+                width={120}
+                options={[
+                  { value: 'male', label: 'Мужской' },
+                  { value: 'female', label: 'Женский' },
+                ]}
+              />
               <FormField
                 name="education"
                 label="Образование"
@@ -137,35 +105,7 @@ const VacancyForm = ({ initialValues, onSubmit }: Props) => {
 
           <FormBlock>
             <FormRow>
-              <InputBlock>
-                <label>Зарплата</label>
-                <InputRow>
-                  <RadioButton $horizontal>
-                    <Field type="radio" name="salary.type" id="hand-on" value="Полная занятость" />
-                    <label htmlFor="hand-on">
-                      <CheckIcon/>
-                      На руки
-                    </label>
-                  </RadioButton>
-                  <RadioButton $horizontal>
-                    <Field type="radio" name="salary.type" id="before-taxes" value="Частичная занятость" />
-                    <label htmlFor="before-taxes">
-                      <CheckIcon/>
-                      До вычета налогов
-                    </label>
-                  </RadioButton>
-                </InputRow>
-                <InputRow>
-                  <label>
-                    от
-                    <Field type="number" name="salary.from"/>
-                  </label>
-                  <label>
-                    до
-                    <Field type="number" name="salary.from"/>
-                  </label>
-                </InputRow>
-              </InputBlock>
+              <SalaryGroup />
             </FormRow>
             <FormRow>
               <FormField
@@ -215,31 +155,17 @@ const VacancyForm = ({ initialValues, onSubmit }: Props) => {
                   { value: '2-2', label: 'Сменный 2/2' },
                 ]}
               />
-              <InputBlock $required $width={200}>
-                <label>Тип занятости</label>
-                <RadioButton>
-                  <Field type="radio" name="employmentType" id="full-time" value="Полная занятость" />
-                  <label htmlFor="full-time">
-                    <CheckIcon/>
-                    Полная занятость
-                  </label>
-                </RadioButton>
-                <RadioButton>
-                  <Field type="radio" name="employmentType" id="part-time" value="Частичная занятость" />
-                  <label htmlFor="part-time">
-                    <CheckIcon/>
-                    Частичная занятость
-                  </label>
-                </RadioButton>
-                <RadioButton>
-                  <Field type="radio" name="employmentType" id="internship" value="Стажировка" />
-                  <label htmlFor="internship">
-                    <CheckIcon/>
-                    Стажировка
-                  </label>
-                </RadioButton>
-                <ErrorMessage name="employmentType" className="error-message" component="div" />
-              </InputBlock>
+              <RadioGroup
+                name="employmentType"
+                label="Тип занятости"
+                required
+                width={200}
+                options={[
+                  { value: 'full-time', label: 'Полная занятость' },
+                  { value: 'part-time', label: 'Частичная занятость' },
+                  { value: 'internship', label: 'Стажировка' },
+                ]}
+              />
             </FormRow>
           </FormBlock>
 
@@ -284,7 +210,7 @@ const VacancyForm = ({ initialValues, onSubmit }: Props) => {
 
           <FormFooter>
             <Button type="submit">{ initialValues.id ? 'Сохранить' : 'Отправить' }</Button>
-            <ButtonBorder type="reset">Сбросить</ButtonBorder>
+            <ButtonBorder type="reset" onClick={() => onReset(initialValues.id)}>Сбросить</ButtonBorder>
           </FormFooter>
         </Form>
       )}

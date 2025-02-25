@@ -23,8 +23,8 @@ interface Props {
 const Application = ({ data }: Props) => {
   const { id, vacancyName, openingDate, region, address, salary, workExperience, metroStation } = data;
 
-  const salaryFrom = salary?.from ? <b>от { salary.from.toLocaleString('ru-RU') }</b> : '';
-  const salaryTo = salary?.to ? <b>до { salary.to.toLocaleString('ru-RU') }</b> : '';
+  const salaryFrom = salary?.from ? <b>от { Number(salary.from).toLocaleString('ru-RU') }</b> : '';
+  const salaryTo = salary?.to ? <b>до { Number(salary.to).toLocaleString('ru-RU') }</b> : '';
   const salaryType = salary?.type ? <span>{ salary.type }</span> : '';
 
   return (

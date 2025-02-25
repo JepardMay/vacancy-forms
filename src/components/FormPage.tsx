@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { ApplicationData } from '../models';
 import { fetchData } from '../utils/fetchData';
+import { getInitialValues } from '../utils/getInitialValues';
 
 import Page from './Page';
 import VacancyForm from './VacancyForm';
@@ -40,40 +41,13 @@ const FormPage = ({ title, header = title }: Props) => {
     if (id) {
       loadData();
     } else {
-      setInitialValues({
-        id: undefined,
-        jobTitle: '',
-        vacancyName: '',
-        department: '',
-        openingDate: '',
-        plannedClosingDate: '',
-        gender: '',
-        education: '',
-        salary: {
-          type: '',
-          from: undefined,
-          to: undefined,
-        },
-        region: '',
-        address: '',
-        workExperience: '',
-        workSchedule: '',
-        employmentType: '',
-        responsibilities: '',
-        candidateRequirements: '',
-        advantages: '',
-        weOffer: '',
-      });
+      setInitialValues(getInitialValues());
     }
   }, [id]);
 
-  if (loading) {
-    return <div>Загрузка...</div>;
-  }
-
-  if (!initialValues) {
-    return <div>Данные не загружены</div>;
-  }
+  const handleReset = (id: number | undefined) => {
+    setInitialValues(getInitialValues(id));
+  };
 
   const setTitle = () => {
     if (loading) return 'Загрузка...';
@@ -94,7 +68,12 @@ const FormPage = ({ title, header = title }: Props) => {
       <SectionContainer>
         <Container>
           <Title>{ setTitle() }</Title>
-          { (!loading && initialValues) && <VacancyForm initialValues={ initialValues } onSubmit={ handleSubmit } /> }
+          { (!loading && initialValues) &&
+            <VacancyForm
+              initialValues={ initialValues }
+              onSubmit={ handleSubmit }
+              onReset={ handleReset }
+            /> }
         </Container>
       </SectionContainer>
     </Page>
