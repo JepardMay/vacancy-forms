@@ -42,12 +42,16 @@ const Application = ({ data }: Props) => {
           { region }, { address }
         </ApplicationsAddress>
         <ApplicationsInfo>
-          <ApplicationsSalary>{ salaryFrom } { salaryTo } { salaryType }</ApplicationsSalary>
+          { (salaryFrom || salaryTo || salaryType) &&
+            <ApplicationsSalary>{ salaryFrom } { salaryTo } { salaryType }</ApplicationsSalary>
+          }
           <ApplicationsWorkExp>Требуемый опыт: <b>{ workExperience }</b></ApplicationsWorkExp>
-          <ApplicationsMetro>
-            <MetroIcon />
-            { metroStation }
-          </ApplicationsMetro>
+          { metroStation &&
+            <ApplicationsMetro>
+              <MetroIcon />
+              { metroStation }
+            </ApplicationsMetro>
+          }
         </ApplicationsInfo>
       </ApplicationsBody>
     </ApplicationsItem>

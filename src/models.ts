@@ -8,7 +8,7 @@ export interface ApplicationData {
   gender: 'Мужской' | 'Женский' | '';
   education: 'Высшее' | 'Среднее' | '';
   salary?: {
-    type: 'На руки' | 'До вычета налогов' | '';
+    type?: 'На руки' | 'До вычета налогов' | '';
     from?: string;
     to?: string;
   };
