@@ -1,4 +1,31 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+const flexBaseline = css`
+  display: flex;
+  align-items: baseline;
+`;
+
+const boldText = css`
+  font-weight: 700;
+  color: ${({ theme }) => theme.colors.primary};
+`;
+
+const iconStyles = css`
+  flex-shrink: 0;
+  align-self: center;
+  margin-right: 5px;
+`;
+
+const BaseText = styled.p`
+  margin: 0;
+  font-size: 14px;
+  line-height: 17px;
+`;
+
+const FlexContainer = styled.div`
+  ${flexBaseline}
+  gap: 20px;
+`;
 
 export const ApplicationsList = styled.ul`
   display: grid;
@@ -14,15 +41,13 @@ export const ApplicationsItem = styled.li`
   border-radius: 16px;
 `;
 
-export const ApplicationsHeader = styled.div`
-  display: flex;
+export const ApplicationsHeader = styled(FlexContainer)`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 28px;
 
   p {
     margin: 0;
-    margin-right: 15px;
     font-size: 14px;
     line-height: 17px;
   }
@@ -50,73 +75,50 @@ export const ApplicationsTitle = styled.h2`
   line-height: 30px;
 `;
 
-export const ApplicationsBody = styled.div`
-  display: flex;
+export const ApplicationsBody = styled(FlexContainer)`
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: baseline;
-  gap: 20px;
 `;
 
 export const ApplicationsAddress = styled.p`
-  display: flex;
-  align-items: baseline;
+  ${flexBaseline}
   margin: 0;
   line-height: 19px;
 
   svg {
-    flex-shrink: 0;
-    align-self: center;
+    ${iconStyles}
     margin-top: -2px;
-    margin-right: 5px;
-    color: ${({ theme }) => theme.colors.primary};
   }
 `;
 
-export const ApplicationsInfo = styled.div`
-  display: flex;
+export const ApplicationsInfo = styled(FlexContainer)`
   flex-wrap: wrap;
-  align-items: baseline;
-  gap: 20px;
   line-height: 1;
 `;
 
-export const ApplicationsSalary = styled.p`
-  margin: 0;
-  font-size: 14px;
-  line-height: 17px;
-
+export const ApplicationsSalary = styled(BaseText)`
   b {
-    font-weight: 700;
+    ${boldText}
     font-size: 20px;
     line-height: 24px;
-    color: ${({ theme }) => theme.colors.primary};
   }
 `;
 
-export const ApplicationsWorkExp = styled.p`
-  margin: 0;
-  font-size: 14px;
-  line-height: 17px;
-
+export const ApplicationsWorkExp = styled(BaseText)`
   b {
-    font-weight: 700;
+    ${boldText}
     font-size: 16px;
     line-height: 16px;
-    color: ${({ theme }) => theme.colors.primary};
   }
 `;
 
 export const ApplicationsMetro = styled.p`
-  display: flex;
-  align-items: baseline;
+  ${flexBaseline}
   margin: 0;
   font-size: 16px;
   line-height: 19px;
 
   svg {
-    flex-shrink: 0;
-    align-self: center;
-    margin-right: 5px;
+    ${iconStyles}
   }
 `;

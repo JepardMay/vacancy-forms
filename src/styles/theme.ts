@@ -1,22 +1,22 @@
 const theme = {
   colors: {
-    primary: 'var(--primary-color)',
-    hover: 'var(--hover-color)',
-    accent: 'var(--accent-color)',
-    active: 'var(--active-color)',
-    activeShadow: 'var(--active-shadow-color)',
-    alert: 'var(--alert-color)',
-    border: 'var(--border-color)',
-    placeholder: 'var(--placeholder-color)',
-    bg: 'var(--bg-color)',
-    bgSecondary: 'var(--bg-secondary-color)',
-    text: 'var(--text-color)',
+    primary: '#4C73E3',
+    hover: '#88A7FF',
+    accent: '#F2C94C',
+    active: '#F0FFE9',
+    activeShadow: '#35A500B2',
+    alert: '#BF0003',
+    border: '#DEE4F0',
+    placeholder: '#DCDCDC',
+    bg: '#F3F7F8',
+    bgSecondary: '#FFFFFF',
+    text: '#4F4F55',
   },
   fonts: {
-    inter: 'var(--ff-inter)',
+    inter: '"Inter", serif',
   },
   transitions: {
-    default: 'var(--default-transition)',
+    default: '0.3s ease-out',
   },
   spacing: {
     small: '19px',
@@ -27,6 +27,7 @@ const theme = {
     mobile: '480px',
     tablet: '768px',
     desktop: '1024px',
+    maxDesktop: '1920px',
   },
 };
 
