@@ -20,7 +20,7 @@ const router = createBrowserRouter([
     />,
   },
   {
-    path: '/edit:id',
+    path: '/edit/:id',
     element: <FormPage
       title="Редактирование заявки"
       header={
