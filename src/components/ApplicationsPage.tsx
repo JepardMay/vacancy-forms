@@ -1,23 +1,15 @@
-import { useState, useEffect } from 'react';
 import { ApplicationData } from '../models';
-import { fetchData } from '../utils/fetchData';
 
 import Page from './Page';
 import Application from './Application';
 
 import { SectionContainer, Container, Title, ApplicationsList } from '../styles';
 
-const ApplicationsPage = () => {
-  const [applications, setApplications] = useState<ApplicationData[]>([]);
+interface Props {
+  applications: ApplicationData[];
+}
 
-  useEffect(() => {
-    const loadData = async () => {
-      const data = await fetchData();
-      setApplications(data);
-    };
-    loadData();
-  }, []);
-
+const ApplicationsPage = ({ applications }: Props) => {
   const aplicationsList = <ApplicationsList>
     { applications.map((application) => <Application key={application.id} data={ application }  />)}
   </ApplicationsList>;
