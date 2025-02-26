@@ -69,6 +69,10 @@ export const InputBlock = styled.div<InputBlockProps>`
       border-color: ${({ theme }) => theme.colors.alert};
     }
 
+    &::-moz-clear {
+      display: none;
+    }
+
     &:focus,
     &:focus-visible {
       border-color: ${({ theme }) => theme.colors.primary};
@@ -102,15 +106,14 @@ export const InputBlock = styled.div<InputBlockProps>`
     position: relative;
     padding-right: 10px;
     appearance: none;
-    background-image: url('/img/calendar-icon.svg');
-    background-repeat: no-repeat;
-    background-position: calc(100% - 12px) center;
-    background-size: 22px;
 
     &::-webkit-calendar-picker-indicator {
       width: 22px;
       height: 22px;
-      opacity: 0;
+      background-image: url('/img/calendar-icon.svg');
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 100%;
     }
   }
 
