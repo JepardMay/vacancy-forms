@@ -56,6 +56,7 @@ export const InputBlock = styled.div<InputBlockProps>`
     padding: 12px 20px;
     font-size: 16px;
     line-height: 19px;
+    background-color: ${({ theme }) => theme.colors.bgSecondary};
     border: 1px solid ${({ theme }) => theme.colors.border};
     border-radius: 16px;
     transition: ${({ theme }) => theme.transitions.default};
@@ -89,6 +90,28 @@ export const InputBlock = styled.div<InputBlockProps>`
 
   select {
     padding: 5px 20px;
+    padding-right: 40px;
+    appearance: none;
+    background-image: url('/img/arrow-icon.svg');
+    background-repeat: no-repeat;
+    background-position: calc(100% - 12px) center;
+    background-size: 20px;
+  }
+
+  input[type="date"] {
+    position: relative;
+    padding-right: 10px;
+    appearance: none;
+    background-image: url('/img/calendar-icon.svg');
+    background-repeat: no-repeat;
+    background-position: calc(100% - 12px) center;
+    background-size: 22px;
+
+    &::-webkit-calendar-picker-indicator {
+      width: 22px;
+      height: 22px;
+      opacity: 0;
+    }
   }
 
   .error-message {
@@ -120,8 +143,15 @@ export const InputRow = styled.div`
       margin-left: 7px;
     }
   }
+`;
 
-  label + label {
+export const InputGroup = styled.div`
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  max-width: 120px;
+
+  & + & {
     margin-left: 16px;
   }
 `;
