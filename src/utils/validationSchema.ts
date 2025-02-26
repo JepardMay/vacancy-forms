@@ -22,7 +22,7 @@ export const validationSchema = Yup.object({
     to: Yup.number().positive('Зарплата должна быть больше 0')
       .test('is-less-than-from', 'Максимальная зарплата должна быть больше минимальной', function (value) {
         const { from } = this.parent;
-        return !!value > from;
+        return (from && value) ? value >= from : true;
       }),
   }),
   region: Yup.string().required('Укажите регион'),
