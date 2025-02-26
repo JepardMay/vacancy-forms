@@ -1,4 +1,5 @@
-import { Field } from 'formik';
+import { Field, FormikErrors, FormikTouched, ErrorMessage } from 'formik';
+import { ApplicationData } from '../models';
 
 import { CheckIcon } from './icons';
 
@@ -6,9 +7,15 @@ import {
   InputBlock,
   InputRow,
   RadioButton,
+  InputGroup,
 } from '../styles';
 
-const SalaryGroup = () => (
+interface Props {
+  errors: FormikErrors<ApplicationData>;
+  touched: FormikTouched<ApplicationData>;
+}
+
+const SalaryGroup = ({ errors, touched }: Props) => (
   <InputBlock>
     <label>Зарплата</label>
     <InputRow>
@@ -30,10 +37,13 @@ const SalaryGroup = () => (
         { label: "от", name: "salary.from" },
         { label: "до", name: "salary.to" },
       ].map(option => (
-        <label key={option.name}>
-          {option.label}
-          <Field type="number" name={option.name}/>
-        </label>
+        <InputGroup key={option.name}>
+          <label key={option.name}>
+            {option.label}
+            <Field type="number" name={option.name} className={errors[option.name as keyof ApplicationData] && touched[option.name as keyof ApplicationData] ? 'error' : ''} />
+          </label>
+          <ErrorMessage name={ option.name } className="error-message" component="div" />
+        </InputGroup>
       ))}
     </InputRow>
   </InputBlock>

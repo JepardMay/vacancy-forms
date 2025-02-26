@@ -105,7 +105,10 @@ const VacancyForm = ({ initialValues, onSubmit, onReset }: Props) => {
 
           <FormBlock>
             <FormRow>
-              <SalaryGroup />
+              <SalaryGroup 
+                errors={errors}
+                touched={ touched }
+              />
             </FormRow>
             <FormRow>
               <FormField

@@ -16,6 +16,7 @@ export const getInitialValues = (id?: number): ApplicationData => ({
   },
   region: '',
   address: '',
+  metroStation: '',
   workExperience: '',
   workSchedule: '',
   employmentType: '',

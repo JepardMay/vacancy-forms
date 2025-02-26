@@ -1,5 +1,5 @@
 export interface ApplicationData {
-  id?: number;
+  id: number | undefined;
   jobTitle: string;
   vacancyName: string;
   department: string;
@@ -7,19 +7,19 @@ export interface ApplicationData {
   plannedClosingDate: string;
   gender: 'Мужской' | 'Женский' | '';
   education: 'Высшее' | 'Среднее' | '';
-  salary?: {
-    type?: 'На руки' | 'До вычета налогов' | '';
-    from?: string;
-    to?: string;
+  salary: {
+    type: 'На руки' | 'До вычета налогов' | '';
+    from: string;
+    to: string;
   };
   region: string;
   address: string;
-  metroStation?: string;
+  metroStation: string;
   workExperience: string;
   workSchedule: 'Полный день' | 'Сменный 5/2' | 'Сменный 2/2' | '';
   employmentType: 'Полная занятость' | 'Частичная занятость' | 'Стажировка' | '';
-  responsibilities?: string;
-  candidateRequirements?: string;
-  advantages?: string;
-  weOffer?: string;
+  responsibilities: string;
+  candidateRequirements: string;
+  advantages: string;
+  weOffer: string;
 };
